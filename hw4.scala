@@ -2,11 +2,11 @@ import org.apache.spark.sql.SparkSession
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
 
-object SparkAssignment4 {
+object hw4 {
   def main(args: Array[String]): Unit = {
     // Запустить сессию Apache Spark под управлением YARN, развернутого кластера в предыдущих заданиях.
     val spark = SparkSession.builder()
-      .appName("Spark Assignment 4")
+      .appName("hw4")
       .master("yarn")
       .getOrCreate()
 
