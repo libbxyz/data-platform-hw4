@@ -16,7 +16,7 @@ object SparkAssignment4 {
     val hadoopConfig = new Configuration()
     val hdfs = FileSystem.get(hadoopConfig)
 
-    val inputPath = new Path("/input/input.txt") // Replace with actual HDFS path
+    val inputPath = new Path("/input/input.txt")
     if (!hdfs.exists(inputPath)) {
       println(s"Input path does not exist: $inputPath")
       sys.exit(1)
