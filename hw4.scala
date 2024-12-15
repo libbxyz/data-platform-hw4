@@ -39,20 +39,20 @@ object SparkAssignment4 {
     //  Провести несколько трансформаций данных
     //  +Для повышения оценки: применить 5 трансформаций разных видов, сохранить данные как партиционированную таблицу.
 
-    // Count the number of rows
+    // Подсчитание количество строк
     val rowCount = data.count()
     println(s"Total rows: $rowCount")
 
-    // Extract words and convert to DataFrame
+    // Извлечение слов и преобразование в DataFrame
     val words = data.flatMap(_.split(" ")).toDF("word")
 
-    // Group by word and count occurrences
+    // Группировка по словам и подсчет вхождений
     val wordCounts = words.groupBy("word").count()
 
-    // Sort by count in descending order
+    // Сортировка по количеству в порядке убывания
     val sortedWordCounts = wordCounts.orderBy($"count".desc)
 
-    // Add a column for word length
+    // Добавление колонку для длины слова
     val withLength = sortedWordCounts.withColumn("length", $"word".length)
 
     println("Transformed Data:")
